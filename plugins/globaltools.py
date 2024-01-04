@@ -38,7 +38,7 @@
 """
 import asyncio
 import os
-
+import time
 from telethon.errors.rpcerrorlist import ChatAdminRequiredError, FloodWaitError
 from telethon.tl.functions.channels import EditAdminRequest
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
@@ -91,6 +91,7 @@ _gdemote_rights = ChatAdminRights(
 
 keym = KeyManager("GBLACKLISTS", cast=list)
 
+start_time = time.time()
 
 @ultroid_cmd(pattern="gpromote( (.*)|$)", fullsudo=True)
 async def _(e):
